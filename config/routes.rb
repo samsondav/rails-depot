@@ -1,11 +1,12 @@
 Depot::Application.routes.draw do
-  resources :products
+  get "store/index"
+  resources :products #draws out automatic plural routes for products controller
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'store#index', as: 'store' #TODO: try commenting out the as: store and see if it affects path_to store_path. HINT: it will.
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
