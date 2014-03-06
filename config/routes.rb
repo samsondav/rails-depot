@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :carts
+
   get "store/index"
   resources :products #draws out automatic plural routes for products controller
 
