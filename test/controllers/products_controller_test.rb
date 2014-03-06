@@ -13,6 +13,10 @@ class ProductsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+    
+    assert_select 'tr', equals: 4 #four items in test database
+    assert_select 'dt', "Programming Ruby 1.9" # one of the titles in the test database
+    assert_select '.list_actions a', equals: 3 # show, edit and delete links are present
   end
 
   test "should get new" do
