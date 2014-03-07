@@ -28,9 +28,8 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-#    @line_item = @cart.line_items.build(product: product)
-    @line_item = product.line_items.build(cart: @cart) #does this work as an alternative? - YES IT DOES
-
+    @line_item = @cart.add_product(product.id) # use special add_product method to autoincrement quantity if product already exists
+    
     respond_to do |format|
       if @line_item.save
         # reset counter when new line_item is added to cart
