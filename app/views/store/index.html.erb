@@ -3,7 +3,7 @@
 <% end %>
 
 <h1>Sam's Awesome Catalog of Products</h1>
-
+<span>Hi, you have visited this page <%= pluralize(session[:counter], 'time') %>.</span>
 <% cache ['store', Product.latest] do %>
 
   <% @products.each do |product| %>
