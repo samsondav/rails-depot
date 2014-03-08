@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
   # GET /products
   # GET /products.json
   def index
@@ -66,7 +66,11 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-
+    # redirect to store_url if somehow user tries to access an invalid cart id
+    def invalid_product
+      logger.error "Attempt to access invalid product #{params[:id]}"
+      redirect_to store_url, notice: 'Invalid product'
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
