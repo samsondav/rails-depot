@@ -41,9 +41,16 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should destroy cart" do
     assert_difference('Cart.count', -1) do
+      session[:cart_id] = @cart.id
       delete :destroy, id: @cart
     end
+  assert_redirected_to store_path
+  end
 
-    assert_redirected_to carts_path
+  test "should not be able to destroy cart not in current session" do
+    assert_difference('Cart.count', 0) do
+      delete :destroy, id: -1
+    end
+  assert_redirected_to store_path
   end
 end
