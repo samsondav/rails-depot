@@ -14,8 +14,13 @@
   <div id="columns">
     <div id="side">
       <ul>
-        <li><%= link_to 'Home', store_path %></li>
-        <li><a href="/faq">FAQ</a></li>
+        <li><%= link_to 'Product listing', store_path %></li>
+        <li><% if session[:cart_id] %>
+              <%= link_to 'Your Cart', cart_path(session[:cart_id]) %>
+            <% else %>
+              <%= link_to 'Your Cart', new_cart_path %>
+            <% end%>
+        </li>
         <li><a href="/news">News</a></li>
         <li><%= link_to "Product maintenance (admin only)", products_path %></li>
       </ul>
