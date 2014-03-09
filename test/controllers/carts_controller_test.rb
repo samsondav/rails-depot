@@ -25,6 +25,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "should show cart" do
+    session[:cart_id] = @cart.id # must set session because only the cart in the current session may be accessed by the user
     get :show, id: @cart
     assert_response :success
   end

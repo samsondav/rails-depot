@@ -10,6 +10,13 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    unless @cart.id == session[:cart_id]
+      # user tried to access somebody else's cart
+      respond_to do |format|
+        format.html { redirect_to store_url, notice: 'Invalid cart'}
+        format.json {head :no_content}
+      end
+    end
   end
 
   # GET /carts/new
