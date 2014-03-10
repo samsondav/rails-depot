@@ -38,15 +38,15 @@
   background: #141;
   
   #main {
-    margin-left: 17em;
+    margin-left: 18em;
     padding: 1em;
     background: white;
   }
   
   #side {
     float: left;
-    padding: 1em 2em;
-    width: 13em;
+    padding: 1em 1em;
+    width: 16em;
     background: #141;
     
     ul {
@@ -65,6 +65,43 @@
     #time {
       color: #bfb;
       font-size:small;
+    }
+  }
+}
+
+#side {
+  float: left;
+  padding: 1em 2em;
+  width: 13em;
+  background: #141;
+  
+  form, div {
+    display: inline;
+  }
+  
+  input {
+    font-size: small;
+  }
+  
+  #cart {
+    font-size: smaller;
+    color: white;
+    
+    table {
+      border-top: 1px dotted #595;
+      border-bottom: 1px dotted #595;
+      margin-bottom: 0.5em;
+    }
+  }
+  
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      a {
+        color: #bfb;
+        font-size: small;
+      }
     }
   }
 }

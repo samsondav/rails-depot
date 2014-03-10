@@ -31,12 +31,11 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id) # use special add_product method to autoincrement quantity if product already exists
-    
+    # reset counter when new line_item is added to cart
+    session[:counter] = 0
     respond_to do |format|
       if @line_item.save
-        # reset counter when new line_item is added to cart
-        session[:counter] = 0
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to store_url }
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
