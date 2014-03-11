@@ -66,6 +66,7 @@ class CartsController < ApplicationController
       session[:cart_id] = nil
       respond_to do |format|
         format.html { redirect_to store_url }
+        # format.js TODO: add javascript response to deletion of cart that makes it hide nicely
         format.json { head :no_content }
       end
     else
