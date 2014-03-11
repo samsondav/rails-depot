@@ -1,4 +1,8 @@
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
 <tr>
+<% end %>
   <td><%= button_to 'X', line_item_path(line_item.id), method: :delete%></td>
   <td><%= line_item.quantity %></td>
   <td><%= line_item.product.title %></td>
