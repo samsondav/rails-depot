@@ -8,4 +8,4 @@
   </tr>
 </table>
 
-<%= button_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Really delete this cart?'}%>
+<%= button_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Really delete this cart?', remote: true}%>
