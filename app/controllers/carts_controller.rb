@@ -30,7 +30,7 @@ class CartsController < ApplicationController
 
   # POST /carts
   # POST /carts.json
-  def create    
+  def create
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
@@ -66,7 +66,7 @@ class CartsController < ApplicationController
       session[:cart_id] = nil
       respond_to do |format|
         format.html { redirect_to store_url }
-        # format.js TODO: add javascript response to deletion of cart that makes it hide nicely
+        format.js
         format.json { head :no_content }
       end
     else
