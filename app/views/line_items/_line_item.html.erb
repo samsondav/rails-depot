@@ -4,10 +4,10 @@
 <tr>
 <% end %>
   <td>
-  <% if line_item.quantity > 1%>
-  <%= button_to 'V', decrement_line_item_path(line_item.id), method: :post %>
+  <% if line_item.quantity > 1 %>
+  <%= button_to 'V', decrement_line_item_path(line_item.id), method: :post, remote: true %>
   <% else %>
-  <%= button_to 'X', line_item_path(line_item.id), method: :delete %>
+  <%= button_to 'X', decrement_line_item_path(line_item.id), method: :post, remote: true %>
   <% end %>
   </td>
   <td><%= line_item.quantity %></td>

@@ -51,12 +51,10 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy line_item" do
-#    cart = Cart.new
-#    cart.add_product(products(:one))
-#    assert_difference('cart.line_items.length', -1) do
-#      delete :destroy, id: cart.line_items.find_by(product_id: products(:one).id).id
-#    end
-
-#    assert_redirected_to cart_path(session[:cart_id]) # TODO: fix test, it doesn't test redirect properly for some reasion
+  #   assert_difference('LineItem.count', -1) do
+  #     delete :destroy, product_id: products(:one).id
+  #   end
+  # 
+  #  assert_redirected_to store_url
   end
 end

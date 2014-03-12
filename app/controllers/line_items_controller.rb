@@ -3,7 +3,7 @@ class LineItemsController < ApplicationController
   include SessionCounter
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_line_item
 
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :decrement]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   
   # GET /line_items
@@ -65,7 +65,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to cart_path(session[:cart_id]), notice: 'Item has been removed from the cart' }
+      format.html { redirect_to store_url }
       format.json { head :no_content }
     end
   end
@@ -74,11 +74,15 @@ class LineItemsController < ApplicationController
   # decrements quantity of line_item
   def decrement
     # decrements quantity of line item by one
-    @line_item = LineItem.find(params[:id])
-    @line_item.quantity -= 1
-    @line_item.save!
+    @line_item = @cart.decrement_line_item_quantity(params[:id]) #passing in line_item.id
     respond_to do |format|
+    if @line_item.save
       format.html { redirect_to store_url }
+      format.js { @current_item = @line_item }
+    else
+      format.html { render action: 'edit' }
+      format.json { render json: @line_item.errors, status: :unprocessable_entity }
+    end
     end
   end
   
