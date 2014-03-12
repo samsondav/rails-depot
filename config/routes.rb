@@ -22,16 +22,11 @@ Depot::Application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    resources :line_items do
+      member do
+        post 'decrement'
+      end
+    end
 
   # Example resource route with sub-resources:
   #   resources :products do
