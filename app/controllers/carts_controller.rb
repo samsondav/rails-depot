@@ -26,6 +26,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
+    @cart = Cart.find_by(id: session[:cart_id])
   end
 
   # POST /carts

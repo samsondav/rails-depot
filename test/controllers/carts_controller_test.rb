@@ -31,6 +31,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    session[:cart_id] = @cart.id
     get :edit, id: @cart
     assert_response :success
   end

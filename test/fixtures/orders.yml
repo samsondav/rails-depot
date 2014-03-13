@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Dave Laser
+  address: Customer address 1
+  email: email1@example.com
+  pay_type: Cheque
+
+two:
+  name: Farmer Parsons
+  address: "Farm 1, Ohio, USA"
+  email: email2@validemail.com
+  pay_type: Credit Card
+  
+empty:
+  name: Farmer Parsons
+  address: "Farm 1, Ohio, USA"
+  email: email2@validemail.com
+  pay_type: Credit Card
