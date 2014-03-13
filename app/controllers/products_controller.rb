@@ -5,13 +5,17 @@ class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_cart
   
-  # GET on ???
+  # GET on /products/1/who_bought.atom
+  # TODO: add HTML, XML and JSON-formatted views
   def who_bought
     @product = Product.find(params[:id])
     @latest_order = @product.orders.order(:updated_at).last
     if stale?(@latest_order)
       respond_to do |format|
         format.atom
+        format.html
+        format.xml { render xml: @product.to_xml(include: :orders)}
+        format.json { render json: @product.to_json(include: :orders)}
       end
     end
   end
