@@ -8,7 +8,6 @@ class OrderNotifier < ActionMailer::Base
   #
   def received(order)
     @order = order
-
     mail to: order.email, subject: "Sam's Amazing Online Store Order Confirmation"
   end
 
@@ -19,7 +18,6 @@ class OrderNotifier < ActionMailer::Base
   #
   def shipped(order)
     @order = order
-
     mail to: order.email, subject: "Sam's Amazing Online Store Order Shipped"
   end
 end

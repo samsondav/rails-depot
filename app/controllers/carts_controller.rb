@@ -82,8 +82,9 @@ class CartsController < ApplicationController
 private
   
   # redirect to store_url if somehow user tries to access an invalid cart id
-  def invalid_cart
+  def invalid_cart(e)
     logger.error "Attempt to access invalid cart #{params[:id]}"
+    ErrorNotifier.error_occurred(e).deliver
     redirect_to store_url, notice: 'Invalid cart'
   end
   # Use callbacks to share common setup or constraints between actions.
