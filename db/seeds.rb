@@ -45,5 +45,5 @@ Product.create!(title: 'Rails Test Prescriptions',
 # . . .
 PaymentType.delete_all
 PaymentType.create(name: 'Cheque')
-PaymentType.create(name: 'Credit Cart')
+PaymentType.create(name: 'Credit Card')
 PaymentType.create(name: 'Purchase Order')

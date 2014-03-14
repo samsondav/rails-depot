@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
 
     respond_to do |format|
-      if @order.save
+      if @order.save!
         Cart.destroy(session[:cart_id]) # cart is dead now order has been created
         session[:cart_id] = nil # old cart id refers to destroyed cart
         OrderNotifier.received(@order).deliver

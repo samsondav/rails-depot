@@ -16,5 +16,4 @@ class OrderNotifierTest < ActionMailer::TestCase
     assert_equal ["stavros.foreman@gmail.com"], mail.from
 #    assert_match /<td>1&times;<\/td>\s*<td>Programming Ruby 1.9<\/td>/, mail.body.encoded
   end
-
 end

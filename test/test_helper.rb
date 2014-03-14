@@ -12,4 +12,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  # seed PaymentType database
+  def seed_payment_types
+    PaymentType.create!(name: 'Cheque')
+    PaymentType.create!(name: 'Credit Card')
+    PaymentType.create!(name: 'Purchase Order')
+  end
 end
