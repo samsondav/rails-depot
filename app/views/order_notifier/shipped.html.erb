@@ -1,0 +1,18 @@
+<h3>Your Amazing Order has been Shipped</h3>
+<p>
+  This is just to let you know that we'be shipped your received order:
+</p>
+<table>
+  <tr>
+    <th>Qty</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  <% @order.line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.quantity %>&times;</td>
+    <td><%= line_item.product.title %></td>
+    <td><%= number_to_currency(line_item.total_price)%></td>
+  </tr>
+  <% end %>
+</table>
