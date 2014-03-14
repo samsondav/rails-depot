@@ -21,7 +21,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     get "/orders/new"
     assert_response :success
     assert_template "new"
-    # sleep 10000 #debug
     # dave fills in his details on the form and presses submit
     post_via_redirect "/orders", order: { name: "Dave Thomas",
                                           address: "123 The Street",

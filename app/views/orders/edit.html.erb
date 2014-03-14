@@ -2,5 +2,16 @@
 
 <%= render 'form' %>
 
+<%= form_for(@order) do |f| %>
+
+<div class="field">
+  <%= f.label :ship_date %>
+  <%= f.datetime_select :ship_date %><br />
+</div>
+<%= f.submit 'Order Shipped on this date'%>
+
+
+<% end %>
+
 <%= link_to 'Show', @order %> |
 <%= link_to 'Back', orders_path %>

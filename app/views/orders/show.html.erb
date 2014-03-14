@@ -20,5 +20,12 @@
   <%= @order.pay_type %>
 </p>
 
+<% if @order.ship_date.nil? %>
+<p>Order not yet shipped.</p>
+<%= link_to 'Add ship date', edit_order_path(@order) %>
+<% else %>
+<p>Order shipped on: <%= @order.ship_date %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
