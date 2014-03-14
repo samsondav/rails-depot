@@ -1,10 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
-  PAYMENT_TYPES = ['Cheque', 'Credit Card', 'Purchase Order']
+  validates :pay_type, inclusion: { in: PaymentType.names }
   validates :name, :address, presence: true
-  validates :pay_type, inclusion: { in: self::PAYMENT_TYPES,
-                                    message: 'must be a valid payment type'
-                                  }
   validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/,
                               message: 'must be a valid email address'
                             }

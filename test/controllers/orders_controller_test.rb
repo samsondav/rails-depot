@@ -3,7 +3,11 @@ require 'test_helper'
 class OrdersControllerTest < ActionController::TestCase
   fixtures :all
   setup do
+    # build an order with one line_item
     @order = orders(:one)
+    @cart = carts(:one)
+    @line_item = @cart.add_product(products(:ruby).id)
+    @order.line_items << @line_item
   end
 
   test "should get index" do
@@ -27,7 +31,7 @@ class OrdersControllerTest < ActionController::TestCase
   # end
   
   test "should create order" do
-    assert_difference('Order.count') do
+    assert_difference('Order.count', 1) do
       post :create, order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type }
     end
 
