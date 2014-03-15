@@ -25,26 +25,31 @@
   }
   
   form {
+    
+    .actions {
+      input {
+        margin-top: 1em;
+      }
+    }
     label {
       width: 5em;
       float: left;
       text-align: right;
       padding-top: 0.2em;
-      margin-right: 0.1em;
+      margin-right: 1em;
       display: block;
+      margin-right: 2em;
     }
     
     select, textarea, input {
       margin-left: 0.5em;
     }
     
-    .submit {
-      margin-left: 4em;
-    }
-    
     br {
       display: none;
     }
+    
+    
   }
 }
 #banner {
