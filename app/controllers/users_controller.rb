@@ -54,9 +54,14 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.name} deleted"
+    rescue StandardError => e
+      flash[:notice] = e.message # user cannot be deleted if that would leave no admins remaining, see User model (user.rb)
+    end
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to users_url, notice: 'User deleted' }
       format.json { head :no_content }
     end
   end

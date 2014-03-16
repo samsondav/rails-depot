@@ -24,8 +24,17 @@
         <li><%= link_to 'Product listing', store_path %></li>
         <li><a href="/faq">Faq</a></li>
         <li><a href="/news">News</a></li>
-        <li><%= link_to "Product maintenance (admin only)", products_path %></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
+      <% if session[:user_id] %>
+      <h4>Admin menu</h4>
+        <ul>
+          <li><%= link_to 'Orders', orders_path %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+        </ul>
+        <%= button_to 'Logout', logout_path, method: :delete %>
+        <% end %>
       <br />
       <span id="time">Page rendered by server at <%= Time.now %></span>
     </div>
