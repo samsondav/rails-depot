@@ -17,6 +17,6 @@ class SendNotificationOnInvalidCartErrorTest < ActionDispatch::IntegrationTest
     # check that a mail was sent
     mail = ActionMailer::Base.deliveries.last
     assert_equal ["email1@example.com"], mail.to
-    assert_equal "Sam's Amazing Online Store Order Shipped", mail.subject
+    assert_equal "Sam's Amazing Online Store Order Confirmation", mail.subject
   end
 end
