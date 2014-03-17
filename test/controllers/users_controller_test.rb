@@ -46,4 +46,23 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+  
+  test "should be able to create user without logging in if no users are yet in database" do
+    log
+    User.delete_all
+    assert_difference('User.count') do
+      post :create, user: { name: 'sam', password: 'secret', password_confirmation: 'secret' }
+    end
+
+    assert_redirected_to users_url
+  end
+  
+  test "should not be able to create user without valid login" do
+    logout  
+    assert_difference('User.count', 0) do
+      post :create, user: { name: 'sam', password: 'secret', password_confirmation: 'secret' }
+    end
+
+    assert_redirected_to login_url
+  end
 end

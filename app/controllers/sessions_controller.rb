@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
 
   # POST /login
   def create
+    if User.count.zero?
+      redirect_to admin_url
+    end
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id # this user is now logged in - proved by session[:user_id]. This is hashed on the client-side so is not manipulable by the client, this making this a secure method of tracking logins.

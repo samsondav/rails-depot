@@ -47,3 +47,6 @@ PaymentType.delete_all
 PaymentType.create(name: 'Cheque')
 PaymentType.create(name: 'Credit Card')
 PaymentType.create(name: 'Purchase Order')
+# . . .
+User.delete_all
+User.create(name: 'sam', password: 'secret', password_confirmation: 'secret')
