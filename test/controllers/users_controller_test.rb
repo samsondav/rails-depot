@@ -48,7 +48,7 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "should be able to create user without logging in if no users are yet in database" do
-    log
+    logout
     User.delete_all
     assert_difference('User.count') do
       post :create, user: { name: 'sam', password: 'secret', password_confirmation: 'secret' }
