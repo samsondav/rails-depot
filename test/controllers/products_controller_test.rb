@@ -53,4 +53,12 @@ class ProductsControllerTest < ActionController::TestCase
     end
     assert_redirected_to products_path
   end
+  
+  test "unauthenticated user should not be able to destroy product" do
+    logout
+    assert_difference 'Product.count', 0 do
+      delete :destroy, id: @product
+    end
+    assert_redirected_to login_path
+  end
 end
