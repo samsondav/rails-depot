@@ -39,13 +39,16 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
+  # modify to require that user re-enter current password before allowing user to change it
   def update
+    current_password = params[:user].delete(:current_password)
+    @user.errors.add(:current_password, 'is not correct') unless @user.authenticate(current_password)
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created."}
+      if @user.errors.empty? && @user.update(user_params)
+        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated."}
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', notice: 'Unable to update user details, did you enter your current password correctly?' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

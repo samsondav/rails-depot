@@ -21,12 +21,18 @@
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+  <% if params[:action] == 'edit' || params[:action] == 'update' %>
+  <div class="field">
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password%>
+  </div>
+  <% end %>
   <div class="actions">
-    <%= f.submit %>
+  <%= f.submit %>
   </div>
   </fieldset>
 <% end %>
