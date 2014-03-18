@@ -1,0 +1,31 @@
+es:
+  layouts:
+    application:
+      title:    "La Tienda Increíble de Sam"
+      products: "Productos"
+      home:     "Inicio"
+      faq:      "Preguntas"
+      news:     "Noticias"
+      contact:  "Contacto"
+      page_rendered_at:   "Página reproducida al"
+      admin_menu: "Menu de Administrador"
+      orders:   "Pedidos"
+      products: "Productos"
+      users:    "Usuarios"
+  store:
+    index:
+      title_html: "El Católogo Increíble de Sam"
+      add_html: "Añadir al Carrito"
+  carts:
+    cart:
+      title:      "Su Carrito"
+      checkout:   "Checkout"
+      empty:      "Vaciar su Carrito"
+  number:
+    currency:
+      format:
+        unit:   "US$"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%u&nbsp;%n"

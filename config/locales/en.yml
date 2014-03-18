@@ -20,4 +20,33 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      title:    "Sam's Amazing Product Listing"
+      products: "Products"
+      home:     "Home"
+      faq:      "Questions"
+      news:     "News"
+      contact:  "Contact"
+      page_rendered_at: "Page rendered at"
+      admin_menu: "Admin menu"
+      orders:   "Orders"
+      products: "Products"
+      users:    "Users"
+  store:
+    index:
+      title_html: "Sam's Incredible Catalog"
+      add_html: "Add to Cart"
+  carts:
+    cart:
+      title:  "Your Amazing Cart"
+      checkout: "Checkout"
+      empty:    "Empty Cart"
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision:  2
+        separator:  "."
+        delimiter:  ","
+        format:     "%u%n"

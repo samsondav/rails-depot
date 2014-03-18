@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sam's Amazing Online Store</title>
+  <title><%= t('.title') %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,36 +9,34 @@
 <body class='<%= controller.controller_name %>'>
   <div id="banner">
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Sam's Amazing Online Store" %>
+    <%= @page_title || t('.title') %>
   </div>
   <div id="columns">
     <div id="side">
       <% if not @cart.nil? %>
-      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-        <%= render @cart %>
-      <% end %>
-      <% else %>
-      <div id="cart">- cart goes here, but @cart object not found by this controller -</div>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+        <% end %>
       <% end %>
       <ul>
-        <li><%= link_to 'Product listing', store_path %></li>
-        <li><a href="/faq">Faq</a></li>
-        <li><a href="/news">News</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><%= link_to t('.products'), store_path %></li>
+        <li><a href="/faq"><%= t('.faq') %></a></li>
+        <li><a href="/news"><%= t('.news') %></a></li>
+        <li><a href="/contact"><%= t('.contact') %></a></li>
       </ul>
       <% if session[:user_id] %>
-      <h4>Admin menu</h4>
+      <h4><%= t('.admin_menu') %></h4>
         <ul>
-          <li><%= link_to 'Orders', orders_path %></li>
-          <li><%= link_to 'Products', products_path %></li>
-          <li><%= link_to 'Users', users_path %></li>
+          <li><%= link_to t('.orders'), orders_path %></li>
+          <li><%= link_to t('.products'), products_path %></li>
+          <li><%= link_to t('.users'), users_path %></li>
         </ul>
         <%= button_to 'Logout', logout_path, method: :delete %>
       <% else %>
         <%= button_to 'Login', login_path %>
       <% end %>
       <br />
-      <span id="time">Page rendered by server at <%= Time.now %></span>
+      <span id="time"><%= t('.page_rendered_at') + ' ' + Time.now.to_s %></span>
     </div>
     <div id="main">
       <%= yield %>
