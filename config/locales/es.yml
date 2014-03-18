@@ -24,7 +24,7 @@ es:
   number:
     currency:
       format:
-        unit:   "US$"
+        unit:   "EU$"
         precision: 2
         separator: ","
         delimiter: "."
