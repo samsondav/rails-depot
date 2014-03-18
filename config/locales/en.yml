@@ -22,31 +22,48 @@
 en:
   layouts:
     application:
-      title:    "Sam's Amazing Product Listing"
-      products: "Products"
-      home:     "Home"
-      faq:      "Questions"
-      news:     "News"
-      contact:  "Contact"
+      title:            "Sam's Amazing Product Listing"
+      products:         "Products"
+      home:             "Home"
+      faq:              "Questions"
+      news:             "News"
+      contact:          "Contact"
       page_rendered_at: "Page rendered at"
-      admin_menu: "Admin menu"
-      orders:   "Orders"
-      products: "Products"
-      users:    "Users"
+      admin_menu:       "Admin menu"
+      orders:           "Orders"
+      products:         "Products"
+      users:            "Users"
   store:
     index:
-      title_html: "Sam's Incredible Catalog"
-      add_html: "Add to Cart"
+      title_html:       "Sam's Incredible Catalog"
+      add_html:         "Add to Cart"
   carts:
     cart:
-      title:  "Your Amazing Cart"
-      checkout: "Checkout"
-      empty:    "Empty Cart"
+      title:            "Your Amazing Cart"
+      checkout:         "Checkout"
+      empty:            "Empty Cart"
   number:
     currency:
       format:
-        unit: "$"
-        precision:  2
-        separator:  "."
-        delimiter:  ","
-        format:     "%u%n"
+        unit:           "$"
+        precision:      2
+        separator:      "."
+        delimiter:      ","
+        format:         "%u%n"
+  orders:
+    new:
+      legend:           "Please Enter Your Details"
+    form:
+      name:             "Name"
+      address_html:     "Address"
+      email:            "E-mail"
+      pay_type:         "Pay with"
+      pay_prompt_html:  "Select a payment method"
+      submit:           "Place Order"
+      
+  activerecord:
+    errors:
+      messages:
+        valid_email:    "must be a valid E-mail address"
+        
+  thanks:               "Thankyou for your order"

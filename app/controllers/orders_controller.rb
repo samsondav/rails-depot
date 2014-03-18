@@ -40,11 +40,11 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
 
     respond_to do |format|
-      if @order.save!
+      if @order.save
         Cart.destroy(session[:cart_id]) # cart is dead now order has been created
         session[:cart_id] = nil # old cart id refers to destroyed cart
         OrderNotifier.received(@order).deliver
-        format.html { redirect_to store_url, notice: 'Thankyou for your order' }
+        format.html { redirect_to store_url, notice: I18n.t('.thanks') }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
