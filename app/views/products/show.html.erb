@@ -19,6 +19,10 @@
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
+<p>
+  <strong>Locale:</strong>
+  <%= @product.locale %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
