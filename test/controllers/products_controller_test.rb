@@ -6,7 +6,8 @@ class ProductsControllerTest < ActionController::TestCase
     @valid_product = {title: "Test title",
                 description: "Product description",
                 image_url: "test.gif",
-                price: 20.00 }
+                price: 20.00,
+                locale: 'en'}
   end
 
   test "should get index" do

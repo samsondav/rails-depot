@@ -9,8 +9,9 @@ class Product < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :image_url, allow_blank: true, format: {
             with:  %r{\.(gif|jpe{0,1}g|png)\z}i,
-            message: 'must be a URL for GIF, JPG or PNG image' 
-  }
+            message: 'must be a URL for GIF, JPG or PNG image' }
+  validates :locale, inclusion: { in: LANGUAGES.map {|l| l[1]},
+            message: "%{value} is not a valid locale" }
   
   def self.latest
     Product.order(:updated_at).last #return latest updated product (for caching purposes), order clearly sorts by oldest->newest

@@ -6,6 +6,7 @@ one:
   description: MyText
   image_url: imgurl.gif
   price: 9.99
+  locale: en
 
 two:
   id: 2
@@ -13,6 +14,7 @@ two:
   description: MyText
   image_url: imgurl.jpg
   price: 9.99
+  locale: en
   
 three:
   id: 3
@@ -20,6 +22,7 @@ three:
   description: Some text
   image_url: imgurl.png
   price: 99.99
+  locale: en
   
 ruby:
   id: 4
@@ -29,4 +32,5 @@ ruby:
     language out there. If you need to get working programs
     delivered fast, you should add Ruby to your toolbox.
   image_url: ruby.png
-  price: 49.50  
+  price: 49.50
+  locale: en

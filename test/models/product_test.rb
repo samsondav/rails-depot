@@ -58,12 +58,27 @@ class ProductTest < ActiveSupport::TestCase
       assert_equal ["must be a URL for GIF, JPG or PNG image"], product.errors[:image_url]
     end
   end
-
+  
+  test "new product must require a locale" do
+    product = valid_product
+    product.locale = nil
+    assert product.invalid?, "#{product.locale} should not be a valid locale"
+  end
+  
+  test "products with all locales listed in LANGUAGES should be valid" do
+    product = valid_product
+    LANGUAGES.map{|l| l[1]}.each do |locale|
+      product.locale = locale
+      assert product.valid?, "#{locale} should be a valid locale"
+    end
+  end
+  
 private
 def valid_product
   Product.new(title: "valid_title",
               description: "valid description",
               image_url: "valid.jpg",
-              price: 9.99)
+              price: 9.99,
+              locale: 'en')
   end
 end
