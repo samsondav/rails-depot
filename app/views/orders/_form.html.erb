@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :pay_type, t('.pay_type') %><br />
-    <%= f.select :pay_type, PaymentType.names, prompt: t('.pay_prompt_html') %>
+    <%= f.select :pay_type, localised_payment_type_options, prompt: t('.pay_prompt_html') %>
   </div>
   <div class="actions">
     <%= f.submit t('.submit')%>
