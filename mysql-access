@@ -1,0 +1,3 @@
+table: depot_production 
+user: rails-production@localhost
+pass: railspass
