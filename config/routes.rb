@@ -1,4 +1,7 @@
+require './app/store'
+
 Depot::Application.routes.draw do
+  match 'catalog' => StoreApp.new, via: :all
 
   get "admin" => "admin#index"
 
@@ -14,7 +17,7 @@ Depot::Application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
-  
+
   scope '(:locale)' do
     resources :orders
     resources :line_items do

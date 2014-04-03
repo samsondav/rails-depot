@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
   before_action :set_cart
   
   # GET on /products/1/who_bought.atom
-  # TODO: add HTML, XML and JSON-formatted views
   def who_bought
     @product = Product.find(params[:id])
     @latest_order = @product.orders.order(:updated_at).last
@@ -25,6 +24,10 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    respond_to do |format|
+      format.html
+      format.xml
+    end
   end
 
   # GET /products/1

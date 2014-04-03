@@ -4,20 +4,17 @@
 
 <h1><%= t('.title_html') %></h1>
 <span>Hi, you have visited this page <%= pluralize(session[:counter], 'time') %>.</span>
-<% cache ['store', Product.latest] do %>
 
-  <% @products.each do |product| %>
-    <% cache ['entry', product] do %>
-      <div class="entry">
-        <%= image_tag(product.image_url) %>
-        <h3><%= product.title %></h3>
-        <%= sanitize(product.description)%>
-        <div class="price_line">
-          <span class="price"><%= number_to_currency(local_currency(product.price)) %></span>
-          <%= button_to t('.add_html'), line_items_path(product_id: product), remote: true %>
-        </div>
+<% @products.each do |product| %>
+  <% cache ['entry', product] do %>
+    <div class="entry">
+      <%= image_tag(product.image_url) %>
+      <h3><%= product.title %></h3>
+      <%= sanitize(product.description)%>
+      <div class="price_line">
+        <span class="price"><%= number_to_currency(local_currency(product.price)) %></span>
+        <%= button_to t('.add_html'), line_items_path(product_id: product), remote: true %>
       </div>
-    <% end %>
+    </div>
   <% end %>
-
 <% end %>
